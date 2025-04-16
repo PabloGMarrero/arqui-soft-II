@@ -12,7 +12,7 @@ public class MongoDeleteUser implements DeleteUserAdapter {
     }
 
     @Override
-    public void delete(Integer userId) {
+    public void delete(String userId) {
         userRepository.deleteById(userId);
     }
 }

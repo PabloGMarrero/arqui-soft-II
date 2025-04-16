@@ -15,14 +15,7 @@ public class MongoCreateUser implements CreateUserAdapter {
     }
 
     @Override
-    public User create(CreateUserRequest createUserRequest) {
-        var user = User.builder()
-                .id(1)
-                .email(createUserRequest.getEmail())
-                .name(createUserRequest.getName())
-                .lastname(createUserRequest.getLastname())
-                .build();
-
+    public User create(User user) {
         return userRepository.save(user);
     }
 }

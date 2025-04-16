@@ -2,6 +2,8 @@ package com.arqui.soft.freemarket.user.domain.ports.out;
 
 import com.arqui.soft.freemarket.user.domain.model.User;
 
-public interface CreateUserAdapter {
-    User create(User user);
+import java.util.Optional;
+
+public interface GetUserAdapter {
+    Optional<User> getById(String value);
 }
