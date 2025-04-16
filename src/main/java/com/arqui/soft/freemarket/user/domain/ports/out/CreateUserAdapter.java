@@ -1,8 +1,8 @@
-package com.arqui.soft.freemarket.user.domain.ports.in;
+package com.arqui.soft.freemarket.user.domain.ports.out;
 
 import com.arqui.soft.freemarket.user.architecture.adapters.in.request.CreateUserRequest;
 import com.arqui.soft.freemarket.user.domain.model.User;
 
-public interface CreateUserPort {
+public interface CreateUserAdapter {
     User create(CreateUserRequest user);
 }
