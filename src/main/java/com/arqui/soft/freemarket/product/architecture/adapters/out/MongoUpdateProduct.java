@@ -1,10 +1,10 @@
 package com.arqui.soft.freemarket.product.architecture.adapters.out;
 
-import com.arqui.soft.freemarket.product.domain.ports.out.ProductUpdateAdapter;
+import com.arqui.soft.freemarket.product.domain.ports.out.UpdateProductAdapter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MongoUpdateProduct implements ProductUpdateAdapter {
+public class MongoUpdateProduct implements UpdateProductAdapter {
     private final MongoProductRepository productRepository;
 
     public MongoUpdateProduct(MongoProductRepository productRepository) {

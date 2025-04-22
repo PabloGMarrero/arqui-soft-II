@@ -28,7 +28,7 @@ public class CreateProductUseCase implements CreateProductPort {
         var sellerById = getSellerAdapter.getById(sellerId);
         if (sellerById.isEmpty())
         {
-            throw new SellerDoesNotExistException(String.format("El vendedor con id %s no existe.", sellerId));
+            throw new SellerDoesNotExistException(sellerId);
         }
 
         var seller = sellerById.get();

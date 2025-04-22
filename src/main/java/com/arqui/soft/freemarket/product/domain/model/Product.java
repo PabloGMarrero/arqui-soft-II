@@ -28,6 +28,7 @@ public class Product {
 
     public void removeStock(int amount) {
         if (amount > stock) throw new IllegalArgumentException("Stock insuficiente");
+        if (stock<1) throw new IllegalArgumentException("Stock insuficiente");
         this.stock -= amount;
     }
 }

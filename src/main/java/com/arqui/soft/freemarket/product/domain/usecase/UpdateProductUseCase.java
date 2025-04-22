@@ -1,14 +1,13 @@
 package com.arqui.soft.freemarket.product.domain.usecase;
 
 import com.arqui.soft.freemarket.commons.Price;
-import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
 import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;
 import com.arqui.soft.freemarket.product.architecture.adapters.in.request.UpdateProductRequest;
 import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductEntity;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.in.UpdateProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;
-import com.arqui.soft.freemarket.product.domain.ports.out.ProductUpdateAdapter;
+import com.arqui.soft.freemarket.product.domain.ports.out.UpdateProductAdapter;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +15,11 @@ import java.util.Objects;
 
 @Service
 public class UpdateProductUseCase implements UpdateProductPort {
-    private final ProductUpdateAdapter productUpdateAdapter;
+    private final UpdateProductAdapter updateProductAdapter;
     private final GetProductAdapter getProductAdapter;
 
-    public UpdateProductUseCase(ProductUpdateAdapter productUpdateAdapter, GetProductAdapter getProductAdapter) {
-        this.productUpdateAdapter = productUpdateAdapter;
+    public UpdateProductUseCase(UpdateProductAdapter updateProductAdapter, GetProductAdapter getProductAdapter) {
+        this.updateProductAdapter = updateProductAdapter;
         this.getProductAdapter = getProductAdapter;
     }
 
@@ -29,7 +28,7 @@ public class UpdateProductUseCase implements UpdateProductPort {
 
         var optionalProduct = getProductAdapter.getById(productId);
         if (optionalProduct.isEmpty()) {
-            throw new ProductDoestNotExistException((String.format("El producto con id %s no existe.", productId)));
+            throw new ProductDoestNotExistException(productId);
         }
         var productFinded = optionalProduct.get();
         var productBuilder = ProductEntity.builder();
@@ -62,7 +61,7 @@ public class UpdateProductUseCase implements UpdateProductPort {
             productBuilder.stock(productFinded.getStock());
         }
 
-        var productUpdated = productUpdateAdapter.update(
+        var productUpdated = updateProductAdapter.update(
                 productBuilder.id(productFinded.getId())
                         .build()
         );

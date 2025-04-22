@@ -1,10 +1,8 @@
 package com.arqui.soft.freemarket.product.architecture.adapters.out;
 
-import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -37,5 +35,4 @@ public class ProductEntity {
     private SellerEntity seller;*/
     @Field(name = "sellerId")
     private String sellerId;
-
 }
