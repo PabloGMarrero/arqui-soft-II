@@ -2,6 +2,7 @@ package com.arqui.soft.freemarket.seller.domain.usecase;
 
 import com.arqui.soft.freemarket.commons.Email;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidEmailException;
+import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
 import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
 import com.arqui.soft.freemarket.seller.architecture.adapters.in.request.CreateSellerRequest;
 import com.arqui.soft.freemarket.seller.domain.ports.out.CreateSellerAdapter;
@@ -25,15 +26,23 @@ public class CreateSellerUseCase implements CreateSellerPort {
     public Seller create(CreateSellerRequest createSellerRequest) throws InvalidEmailException, EmailAlreadyExistException {
         var email = new Email(createSellerRequest.getEmail());
 
-        if (getSellerAdapter.getById(email.getValue()).isPresent()) {
+        if (getSellerAdapter.getByEmail(email.getValue()).isPresent()) {
             throw new EmailAlreadyExistException("Email ya existente.");
         }
 
-        var seller = Seller.builder()
+        var seller = SellerEntity.builder()
                 .email(email)
                 .name(createSellerRequest.getName())
                 .build();
 
-        return createSellerAdapter.create(seller);
+        var sellerCreated = createSellerAdapter.create(seller);
+
+        return Seller.builder()
+                .id(sellerCreated.getId())
+                .products(sellerCreated.getProducts())
+                .email(sellerCreated.getEmail())
+                .name(sellerCreated.getName())
+                .build();
+
     }
 }

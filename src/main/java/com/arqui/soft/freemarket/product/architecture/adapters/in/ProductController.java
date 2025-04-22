@@ -1,13 +1,14 @@
 package com.arqui.soft.freemarket.product.architecture.adapters.in;
 
+import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;
 import com.arqui.soft.freemarket.product.architecture.adapters.in.request.CreateProductRequest;
 import com.arqui.soft.freemarket.product.architecture.adapters.in.request.UpdateProductRequest;
+import com.arqui.soft.freemarket.commons.exceptions.SellerDoesNotExistException;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.in.CreateProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.in.DeleteProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.in.GetProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.in.UpdateProductPort;
-import com.arqui.soft.freemarket.user.architecture.adapters.in.request.UpdateUserRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/products")
@@ -35,22 +38,22 @@ public class ProductController {
     }
 
     @GetMapping(path = "/byName/{name}")
-    public ResponseEntity<Product> getProductByName(@PathVariable String name){
+    public ResponseEntity<List<Product>> getProductByName(@PathVariable String name){
         return ResponseEntity.ok(getProductPort.getProductByName(name));
     }
 
     @GetMapping(path = "/byCategory/{category}")
-    public ResponseEntity<Product> getProductByCategory(@PathVariable String category){
+    public ResponseEntity<List<Product>> getProductByCategory(@PathVariable String category){
         return ResponseEntity.ok(getProductPort.getProductByCategory(category));
     }
 
     @PostMapping(path = "/{sellerId}")
-    public ResponseEntity<Product> createProduct(@RequestBody CreateProductRequest createProductRequest, @PathVariable String sellerId){
+    public ResponseEntity<Product> createProduct(@RequestBody CreateProductRequest createProductRequest, @PathVariable String sellerId) throws SellerDoesNotExistException {
         return ResponseEntity.ok(createProductPort.create(createProductRequest, sellerId));
     }
 
     @PatchMapping(path = "/{productId}")
-    public ResponseEntity<Product> updateProduct(@PathVariable String productId, @RequestBody UpdateProductRequest productRequest){
+    public ResponseEntity<Product> updateProduct(@PathVariable String productId, @RequestBody UpdateProductRequest productRequest) throws ProductDoestNotExistException {
         return ResponseEntity.ok(updateProductPort.update(productId, productRequest));
     }
 

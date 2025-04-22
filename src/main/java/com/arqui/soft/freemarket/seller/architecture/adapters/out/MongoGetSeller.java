@@ -1,6 +1,5 @@
 package com.arqui.soft.freemarket.seller.architecture.adapters.out;
 
-import com.arqui.soft.freemarket.seller.domain.model.Seller;
 import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,12 @@ public class MongoGetSeller implements GetSellerAdapter {
     }
 
     @Override
-    public Optional<Seller> getById(String value) {
+    public Optional<SellerEntity> getByEmail(String value) {
         return sellerRepository.findByEmail_Value(value);
+    }
+
+    @Override
+    public Optional<SellerEntity> getById(String sellerId) {
+        return sellerRepository.findById(sellerId);
     }
 }

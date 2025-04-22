@@ -2,8 +2,10 @@ package com.arqui.soft.freemarket.product.domain.ports.in;
 
 import com.arqui.soft.freemarket.product.domain.model.Product;
 
-public interface GetProductPort {
-    Product getProductByName(String name);
+import java.util.List;
 
-    Product getProductByCategory(String category);
+public interface GetProductPort {
+    List<Product> getProductByName(String name);
+
+    List<Product> getProductByCategory(String category);
 }

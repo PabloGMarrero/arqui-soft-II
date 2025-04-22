@@ -1,7 +1,7 @@
 package com.arqui.soft.freemarket.seller.domain.ports.out;
 
-import com.arqui.soft.freemarket.seller.domain.model.Seller;
+import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
 
 public interface CreateSellerAdapter {
-    Seller create(Seller seller);
+    SellerEntity create(SellerEntity seller);
 }

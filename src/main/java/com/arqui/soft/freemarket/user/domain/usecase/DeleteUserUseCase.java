@@ -1,6 +1,5 @@
 package com.arqui.soft.freemarket.user.domain.usecase;
 
-import com.arqui.soft.freemarket.user.domain.model.User;
 import com.arqui.soft.freemarket.user.domain.ports.in.DeleteUserPort;
 import com.arqui.soft.freemarket.user.domain.ports.out.DeleteUserAdapter;
 import org.springframework.stereotype.Service;

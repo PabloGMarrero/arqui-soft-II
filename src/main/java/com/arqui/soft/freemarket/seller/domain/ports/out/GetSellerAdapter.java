@@ -1,9 +1,11 @@
 package com.arqui.soft.freemarket.seller.domain.ports.out;
 
-import com.arqui.soft.freemarket.seller.domain.model.Seller;
+import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
 
 import java.util.Optional;
 
 public interface GetSellerAdapter {
-    Optional<Seller> getById(String value);
+    Optional<SellerEntity> getByEmail(String value);
+
+    Optional<SellerEntity> getById(String sellerId);
 }

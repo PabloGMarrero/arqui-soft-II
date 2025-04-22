@@ -22,6 +22,16 @@ public class ResponseHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(SellerDoesNotExistException.class)
+    protected ResponseEntity<Object> handleSellerDoesNotExistException(SellerDoesNotExistException ex) {
+        return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ProductDoestNotExistException.class)
+    protected ResponseEntity<Object> handleProductDoestNotExistException(ProductDoestNotExistException ex) {
+        return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
+    }
+
     private ResponseEntity<Object> buildResponseEntity(ResponseUnit response, HttpStatus statusCode) {
         return new ResponseEntity<>(response, statusCode);
     }

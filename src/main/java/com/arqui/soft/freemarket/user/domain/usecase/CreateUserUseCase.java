@@ -4,6 +4,7 @@ import com.arqui.soft.freemarket.commons.Email;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidEmailException;
 import com.arqui.soft.freemarket.user.architecture.adapters.in.request.CreateUserRequest;
 import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
+import com.arqui.soft.freemarket.user.architecture.adapters.out.UserEntity;
 import com.arqui.soft.freemarket.user.domain.model.User;
 import com.arqui.soft.freemarket.user.domain.ports.in.CreateUserPort;
 import com.arqui.soft.freemarket.user.domain.ports.out.CreateUserAdapter;
@@ -29,12 +30,19 @@ public class CreateUserUseCase implements CreateUserPort {
             throw new EmailAlreadyExistException("Email ya existente.");
         }
 
-        var user = User.builder()
+        var user = UserEntity.builder()
                 .email(email)
                 .name(createUserRequest.getName())
                 .lastname(createUserRequest.getLastname())
                 .build();
 
-        return createUserAdapter.create(user);
+        var userCreated = createUserAdapter.create(user);
+
+        return User.builder()
+                .id(userCreated.getId())
+                .name(userCreated.getName())
+                .lastname(userCreated.getLastname())
+                .email(userCreated.getEmail())
+                .build();
     }
 }

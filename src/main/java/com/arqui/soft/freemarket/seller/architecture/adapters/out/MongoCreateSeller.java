@@ -1,6 +1,5 @@
 package com.arqui.soft.freemarket.seller.architecture.adapters.out;
 
-import com.arqui.soft.freemarket.seller.domain.model.Seller;
 import com.arqui.soft.freemarket.seller.domain.ports.out.CreateSellerAdapter;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +13,7 @@ public class MongoCreateSeller implements CreateSellerAdapter {
     }
 
     @Override
-    public Seller create(Seller seller) {
+    public SellerEntity create(SellerEntity seller) {
         return sellerRepository.save(seller);
     }
 }

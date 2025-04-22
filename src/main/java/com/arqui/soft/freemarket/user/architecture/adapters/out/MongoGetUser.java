@@ -16,7 +16,7 @@ public class MongoGetUser implements GetUserAdapter {
     }
 
     @Override
-    public Optional<User> getById(String value) {
+    public Optional<UserEntity> getById(String value) {
         return userRepository.findByEmail_Value(value);
     }
 }
