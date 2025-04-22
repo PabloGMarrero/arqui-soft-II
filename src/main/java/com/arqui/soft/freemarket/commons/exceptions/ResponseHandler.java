@@ -37,6 +37,15 @@ public class ResponseHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(FilterIsNotAllowedException.class)
+    protected ResponseEntity<Object> handleFilterIsNotAllowedException(FilterIsNotAllowedException ex) {
+        return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidFilterParameter.class)
+    protected ResponseEntity<Object> handleInvalidFilterParameter(InvalidFilterParameter ex) {
+        return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
+    }
 
     private ResponseEntity<Object> buildResponseEntity(ResponseUnit response, HttpStatus statusCode) {
         return new ResponseEntity<>(response, statusCode);

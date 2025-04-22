@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.product.domain.usecase;
+package com.arqui.soft.freemarket.product.application.usecase;
 
 import com.arqui.soft.freemarket.product.domain.ports.in.DeleteProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.out.DeleteProductAdapter;

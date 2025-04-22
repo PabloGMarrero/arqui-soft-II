@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.user.domain.usecase;
+package com.arqui.soft.freemarket.user.application.usecase;
 
 import com.arqui.soft.freemarket.commons.Email;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidEmailException;

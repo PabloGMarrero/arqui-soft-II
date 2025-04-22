@@ -1,5 +1,7 @@
 package com.arqui.soft.freemarket.product.architecture.adapters.in;
 
+import com.arqui.soft.freemarket.commons.exceptions.FilterIsNotAllowedException;
+import com.arqui.soft.freemarket.commons.exceptions.InvalidFilterParameter;
 import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;
 import com.arqui.soft.freemarket.product.architecture.adapters.in.request.CreateProductRequest;
 import com.arqui.soft.freemarket.product.architecture.adapters.in.request.UpdateProductRequest;
@@ -17,8 +19,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -63,5 +67,13 @@ public class ProductController {
         return ResponseEntity.accepted().build();
     }
 
+    @GetMapping("/filter")
+    public ResponseEntity<List<Product>> filterProducts(
+            @RequestParam(required = false) String filterType,
+            @RequestParam(required = false) BigDecimal minPrice,
+            @RequestParam(required = false) BigDecimal maxPrice,
+            @RequestParam(required = false) BigDecimal price) throws FilterIsNotAllowedException, InvalidFilterParameter {
+        return ResponseEntity.ok(getProductPort.filter(filterType, minPrice, maxPrice, price));
+    }
 
 }

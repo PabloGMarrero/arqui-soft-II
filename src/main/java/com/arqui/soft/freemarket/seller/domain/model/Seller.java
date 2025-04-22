@@ -19,8 +19,4 @@ public class Seller {
     private String name;
     private Email email;
     private List<Product> products;
-
-    public void addProduct(Product aProduct) {
-        products.add(aProduct);
-    }
 }

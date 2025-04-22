@@ -3,6 +3,7 @@ package com.arqui.soft.freemarket.product.architecture.adapters.out;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,5 +28,20 @@ public class MongoGetProduct implements GetProductAdapter {
     @Override
     public List<ProductEntity> getProductByCategory(String category) {
         return productRepository.findByCategory(category);
+    }
+
+    @Override
+    public List<ProductEntity> getProductsGreaterThan(BigDecimal price) {
+        return productRepository.findByPriceGreaterThan(price);
+    }
+
+    @Override
+    public List<ProductEntity> getProductsLessThan(BigDecimal price) {
+        return productRepository.findByPriceLessThan(price);
+    }
+
+    @Override
+    public List<ProductEntity> getProductsBetween(BigDecimal minPrice, BigDecimal maxPrice) {
+        return productRepository.findByPriceBetween(minPrice, maxPrice);
     }
 }

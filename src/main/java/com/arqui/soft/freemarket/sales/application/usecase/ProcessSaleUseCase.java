@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.sales.domain.usecase;
+package com.arqui.soft.freemarket.sales.application.usecase;
 
 import com.arqui.soft.freemarket.commons.exceptions.ProcessSaleException;
 import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;

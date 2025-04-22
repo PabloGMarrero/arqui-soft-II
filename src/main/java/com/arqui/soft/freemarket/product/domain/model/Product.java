@@ -8,8 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor(access = AccessLevel.MODULE)
+import java.math.BigDecimal;
+
 @NoArgsConstructor(access = AccessLevel.MODULE)
+@AllArgsConstructor(access = AccessLevel.MODULE)
 @Getter
 @Builder
 public class Product {
@@ -22,9 +24,18 @@ public class Product {
     private Seller seller;
     private String category;
 
-    public void addStock(int amount) {
-        this.stock += amount;
-    }
+/*    public Product(String id, String name, String description, Price price, Integer stock, Seller seller, String category){
+        if(price.getValue().compareTo(BigDecimal.ZERO)<0){
+            throw new IllegalArgumentException("Stock no puede ser negativo");
+        }
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+        this.seller = seller;
+        this.category = category;
+    }*/
 
     public void removeStock(int amount) {
         if (amount > stock) throw new IllegalArgumentException("Stock insuficiente");

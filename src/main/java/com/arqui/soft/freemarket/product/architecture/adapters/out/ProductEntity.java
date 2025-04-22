@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.math.BigDecimal;
 
@@ -25,7 +26,7 @@ public class ProductEntity {
     @Field(name = "category")
     private String category;
 
-    @Field(name = "price")
+    @Field(name = "price", targetType = FieldType.DECIMAL128)
     private BigDecimal price;
 
     @Field(name = "stock")
