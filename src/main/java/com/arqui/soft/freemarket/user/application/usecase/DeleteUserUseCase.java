@@ -15,10 +15,6 @@ public class DeleteUserUseCase implements DeleteUserPort {
 
     @Override
     public void delete(String userId) {
-
-        //validacion si existe?
-        //var user = User.builder().build();
-
         deleteUser.delete(userId);
     }
 }

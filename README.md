@@ -69,4 +69,25 @@ Internamente encontrará cada dominio separado en:
 [UML](/docs/uml)
 
 ### Casos de uso
-[UML](/docs/usecases)
+
+#### Producto
+- [Crear](./docs/usecases/product/create_product.md)
+- [Actualizar](./docs/usecases/product/update_product.md)
+- [Borrar](./docs/usecases/product/delete_product.md)
+- [Obtener por nombre](./docs/usecases/product/get_by_name.md)
+- [Obtener por categori](./docs/usecases/product/get_by_category.md)
+- [Obtener por filtro](./docs/usecases/product/filter_products.md)
+
+#### Vendedor
+- [Crear](./docs/usecases/seller/create_seller.md)
+- [Actualizar](./docs/usecases/seller/update_seller.md)
+- [Borrar](./docs/usecases/seller/delete_seller.md)
+
+#### Usuario
+- [Crear](./docs/usecases/users/create_user.md)
+- [Actualizar](./docs/usecases/users/update_user.md)
+- [Borrar](./docs/usecases/users/delete_user.md)
+
+#### Venta
+- [Procesar](./docs/usecases/sale/sale_product.md)
+

@@ -1,6 +1,5 @@
 package com.arqui.soft.freemarket.user.architecture.adapters.out;
 
-import com.arqui.soft.freemarket.user.domain.model.User;
 import com.arqui.soft.freemarket.user.domain.ports.out.GetUserAdapter;
 import org.springframework.stereotype.Component;
 

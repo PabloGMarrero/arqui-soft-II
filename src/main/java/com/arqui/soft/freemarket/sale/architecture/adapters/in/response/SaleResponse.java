@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.sales.architecture.adapters.in.response;
+package com.arqui.soft.freemarket.sale.architecture.adapters.in.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

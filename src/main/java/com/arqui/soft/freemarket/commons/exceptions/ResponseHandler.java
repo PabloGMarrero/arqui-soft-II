@@ -47,6 +47,11 @@ public class ResponseHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(UserDoestNotExistException.class)
+    protected ResponseEntity<Object> handleUserDoestNotExistException(UserDoestNotExistException ex) {
+        return buildResponseEntity(new ResponseUnit(ex.getMessage(), ""), HttpStatus.BAD_REQUEST);
+    }
+
     private ResponseEntity<Object> buildResponseEntity(ResponseUnit response, HttpStatus statusCode) {
         return new ResponseEntity<>(response, statusCode);
     }

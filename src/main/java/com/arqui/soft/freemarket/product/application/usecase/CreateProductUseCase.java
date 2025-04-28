@@ -38,9 +38,6 @@ public class CreateProductUseCase implements CreateProductPort {
                 .category(createProductRequest.getCategory())
                 .price(createProductRequest.getPrice())
                 .stock(createProductRequest.getStock())
-                /*.seller(SellerEntity.builder()
-                        .id(seller.getId())
-                        .build())*/
                 .sellerId(sellerId)
                 .build();
 

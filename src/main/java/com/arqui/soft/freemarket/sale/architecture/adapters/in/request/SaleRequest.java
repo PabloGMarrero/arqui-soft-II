@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.sales.architecture.adapters.in.request;
+package com.arqui.soft.freemarket.sale.architecture.adapters.in.request;
 
 import lombok.Getter;
 

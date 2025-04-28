@@ -1,4 +1,4 @@
-package com.arqui.soft.freemarket.sales.application.usecase;
+package com.arqui.soft.freemarket.sale.application.usecase;
 
 import com.arqui.soft.freemarket.commons.exceptions.ProcessSaleException;
 import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;
@@ -7,9 +7,9 @@ import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductEntity
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;
 import com.arqui.soft.freemarket.product.domain.ports.out.UpdateProductAdapter;
-import com.arqui.soft.freemarket.sales.architecture.adapters.in.request.SaleRequest;
-import com.arqui.soft.freemarket.sales.architecture.adapters.in.response.SaleResponse;
-import com.arqui.soft.freemarket.sales.domain.ports.in.ProcessSalePort;
+import com.arqui.soft.freemarket.sale.architecture.adapters.in.request.SaleRequest;
+import com.arqui.soft.freemarket.sale.architecture.adapters.in.response.SaleResponse;
+import com.arqui.soft.freemarket.sale.domain.ports.in.ProcessSalePort;
 import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +45,7 @@ public class ProcessSaleUseCase implements ProcessSalePort {
         var sellerEntity = optionalSeller.get();
 
         if(!productEntity.getSellerId().equals(sellerEntity.getId())){
-            throw new ProcessSaleException(String.format("El product con id %s no pertenece al vendedor con id %s.", productEntity.getId(), sellerEntity.getId()));
+            throw new ProcessSaleException(String.format("El producto con id %s no pertenece al vendedor con id %s.", productEntity.getId(), sellerEntity.getId()));
         }
 
         var product = Product.builder()

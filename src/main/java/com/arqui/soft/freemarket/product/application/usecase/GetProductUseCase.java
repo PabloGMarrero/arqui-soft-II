@@ -1,15 +1,12 @@
 package com.arqui.soft.freemarket.product.application.usecase;
 
-import com.arqui.soft.freemarket.commons.Price;
 import com.arqui.soft.freemarket.commons.exceptions.FilterIsNotAllowedException;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidFilterParameter;
-import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductEntity;
 import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductMapperAdapter;
 import com.arqui.soft.freemarket.product.domain.config.ProductFilterStrategyConfiguration;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.in.GetProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;
-import com.arqui.soft.freemarket.seller.domain.model.Seller;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
