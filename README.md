@@ -66,7 +66,7 @@ Internamente encontrará cada dominio separado en:
 
 
 ### UML
-[UML](/docs/uml)
+[UML](./docs/uml/uml_tp_1.png)
 
 ### Casos de uso
 

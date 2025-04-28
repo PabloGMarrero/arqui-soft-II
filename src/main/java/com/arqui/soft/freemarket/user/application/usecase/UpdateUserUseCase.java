@@ -1,7 +1,6 @@
 package com.arqui.soft.freemarket.user.application.usecase;
 
 import com.arqui.soft.freemarket.commons.exceptions.UserDoestNotExistException;
-import com.arqui.soft.freemarket.product.domain.ports.in.UpdateProductPort;
 import com.arqui.soft.freemarket.user.architecture.adapters.in.request.UpdateUserRequest;
 import com.arqui.soft.freemarket.user.architecture.adapters.out.UserEntity;
 import com.arqui.soft.freemarket.user.domain.model.User;

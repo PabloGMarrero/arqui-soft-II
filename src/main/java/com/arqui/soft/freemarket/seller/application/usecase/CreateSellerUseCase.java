@@ -1,14 +1,14 @@
 package com.arqui.soft.freemarket.seller.application.usecase;
 
 import com.arqui.soft.freemarket.commons.Email;
+import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidEmailException;
-import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
-import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
 import com.arqui.soft.freemarket.seller.architecture.adapters.in.request.CreateSellerRequest;
-import com.arqui.soft.freemarket.seller.domain.ports.out.CreateSellerAdapter;
+import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
 import com.arqui.soft.freemarket.seller.domain.model.Seller;
 import com.arqui.soft.freemarket.seller.domain.ports.in.CreateSellerPort;
-import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
+import com.arqui.soft.freemarket.seller.domain.ports.out.CreateSellerAdapter;
+import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
 import org.springframework.stereotype.Service;
 
 @Service

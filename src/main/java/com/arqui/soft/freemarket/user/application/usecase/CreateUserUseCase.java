@@ -1,9 +1,9 @@
 package com.arqui.soft.freemarket.user.application.usecase;
 
 import com.arqui.soft.freemarket.commons.Email;
+import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidEmailException;
 import com.arqui.soft.freemarket.user.architecture.adapters.in.request.CreateUserRequest;
-import com.arqui.soft.freemarket.commons.exceptions.EmailAlreadyExistException;
 import com.arqui.soft.freemarket.user.architecture.adapters.out.UserEntity;
 import com.arqui.soft.freemarket.user.domain.model.User;
 import com.arqui.soft.freemarket.user.domain.ports.in.CreateUserPort;
