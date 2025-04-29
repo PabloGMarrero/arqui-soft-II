@@ -2,7 +2,7 @@ package com.arqui.soft.freemarket.product.application.usecase;
 
 import com.arqui.soft.freemarket.commons.exceptions.FilterIsNotAllowedException;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidFilterParameter;
-import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductMapperAdapter;
+import com.arqui.soft.freemarket.product.infrastructure.adapters.out.ProductMapperAdapter;
 import com.arqui.soft.freemarket.product.domain.config.ProductFilterStrategyConfiguration;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.in.GetProductPort;

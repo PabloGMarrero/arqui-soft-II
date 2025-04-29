@@ -1,6 +1,6 @@
 package com.arqui.soft.freemarket.product.domain.ports.out;
 
-import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductEntity;
+import com.arqui.soft.freemarket.product.infrastructure.adapters.out.ProductEntity;
 
 import java.math.BigDecimal;
 import java.util.List;

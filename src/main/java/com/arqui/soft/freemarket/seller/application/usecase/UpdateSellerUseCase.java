@@ -1,8 +1,8 @@
 package com.arqui.soft.freemarket.seller.application.usecase;
 
 import com.arqui.soft.freemarket.commons.exceptions.SellerDoesNotExistException;
-import com.arqui.soft.freemarket.seller.architecture.adapters.in.request.UpdateSellerRequest;
-import com.arqui.soft.freemarket.seller.architecture.adapters.out.SellerEntity;
+import com.arqui.soft.freemarket.seller.infrastructure.adapters.in.request.UpdateSellerRequest;
+import com.arqui.soft.freemarket.seller.infrastructure.adapters.out.SellerEntity;
 import com.arqui.soft.freemarket.seller.domain.model.Seller;
 import com.arqui.soft.freemarket.seller.domain.ports.in.UpdateSellerPort;
 import com.arqui.soft.freemarket.seller.domain.ports.out.GetSellerAdapter;
