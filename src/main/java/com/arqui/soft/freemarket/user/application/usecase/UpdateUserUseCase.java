@@ -1,8 +1,8 @@
 package com.arqui.soft.freemarket.user.application.usecase;
 
-import com.arqui.soft.freemarket.commons.exceptions.UserDoestNotExistException;
-import com.arqui.soft.freemarket.user.architecture.adapters.in.request.UpdateUserRequest;
-import com.arqui.soft.freemarket.user.architecture.adapters.out.UserEntity;
+import com.arqui.soft.freemarket.commons.exceptions.UserDoesNotExistException;
+import com.arqui.soft.freemarket.user.infrastructure.adapters.in.request.UpdateUserRequest;
+import com.arqui.soft.freemarket.user.infrastructure.adapters.out.UserEntity;
 import com.arqui.soft.freemarket.user.domain.model.User;
 import com.arqui.soft.freemarket.user.domain.ports.in.UpdateUserPort;
 import com.arqui.soft.freemarket.user.domain.ports.out.GetUserAdapter;
@@ -23,11 +23,11 @@ public class UpdateUserUseCase implements UpdateUserPort {
     }
 
     @Override
-    public User update(String userId, UpdateUserRequest updateUserRequest) throws UserDoestNotExistException {
+    public User update(String userId, UpdateUserRequest updateUserRequest) throws UserDoesNotExistException {
 
         var optionalUser = getUserAdapter.getById(userId);
         if (optionalUser.isEmpty()) {
-            throw new UserDoestNotExistException(userId);
+            throw new UserDoesNotExistException(userId);
         }
         var userFound = optionalUser.get();
         var userBuilder = UserEntity.builder();

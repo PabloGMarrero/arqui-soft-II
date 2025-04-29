@@ -2,8 +2,8 @@ package com.arqui.soft.freemarket.product.application.usecase;
 
 import com.arqui.soft.freemarket.commons.Price;
 import com.arqui.soft.freemarket.commons.exceptions.ProductDoestNotExistException;
-import com.arqui.soft.freemarket.product.architecture.adapters.in.request.UpdateProductRequest;
-import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductEntity;
+import com.arqui.soft.freemarket.product.infrastructure.adapters.in.request.UpdateProductRequest;
+import com.arqui.soft.freemarket.product.infrastructure.adapters.out.ProductEntity;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.in.UpdateProductPort;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;

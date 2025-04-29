@@ -1,8 +1,7 @@
 package com.arqui.soft.freemarket.product.domain.model.filter;
 
-import com.arqui.soft.freemarket.commons.exceptions.FilterIsNotAllowedException;
 import com.arqui.soft.freemarket.commons.exceptions.InvalidFilterParameter;
-import com.arqui.soft.freemarket.product.architecture.adapters.out.ProductMapperAdapter;
+import com.arqui.soft.freemarket.product.infrastructure.adapters.out.ProductMapperAdapter;
 import com.arqui.soft.freemarket.product.domain.model.Product;
 import com.arqui.soft.freemarket.product.domain.ports.out.GetProductAdapter;
 import org.springframework.stereotype.Component;
