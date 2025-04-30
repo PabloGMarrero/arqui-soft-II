@@ -14,7 +14,13 @@ sequenceDiagram
         UseCase-->>Controller: Error el filtro utilizado no es correcto
         Controller-->>Usuario: HTTP 400 el filtro utilizado no es correcto
     end
+    UseCase->>Filter: Obtener productos en base al filter
     Filter->>Filter: Validar datos de entrada según filtro
+    opt No cumple validaciones
+        Filter-->>UseCase: Error los datos y parámetros utilizados no son correctos
+        UseCase-->>Controller: Error los datos y parámetros utilizados no son correctos
+        Controller-->>Usuario: HTTP 400 Error los datos y parámetros utilizados no son correctos
+    end
     Filter->>GetProductAdapter: Obtener productos según filtro y parámetros
     GetProductAdapter->>MongoGetProduct: Obtener productos según filtro y parámetros
     MongoGetProduct->>DB: Obtener productos según filtro y parámetros
@@ -23,4 +29,5 @@ sequenceDiagram
     GetProductAdapter-->>Filter: Listado productos 
     Filter-->>UseCase: Listado productos 
     UseCase-->>Controller: Listado productos 
+    Controller-->>Usuario: HTTP 200 OK Listado productos 
 ```
